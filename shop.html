@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOP</title>
+    <link rel="icon" type="image/svg+xml" href="images/LOGO 2.svg">
+
+    <style>
+        @font-face {
+            font-family: 'Panchang';
+            src: url('css/fonts/Panchang-Bold.woff2') format('woff2'),
+                url('css/fonts/Panchang-Bold.woff') format('woff'),
+                url('css/fonts/Panchang-Bold.ttf') format('truetype');
+        }
+
+        body {
+            font-family: 'Panchang';
+            margin: 0;
+            padding: 0;
+            background-color: #101010;
+            color: #fff;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #101010;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+
+
+        .navbar-logo img {
+            height: 100px;
+            position: absolute;
+            ;
+            top: 15%;
+            left: 2.5%;
+            opacity: .8;
+            transition: all .4s ease;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+
+        .navbar-menu a:hover {
+            color: #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-menu {
+                flex-direction: column;
+                gap: 10px;
+                background-color: #1f1f1f;
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                padding: 10px;
+                display: none;
+                border-radius: 5px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .navbar-menu.open {
+                display: flex;
+            }
+
+            .navbar-toggle {
+                display: block;
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 1.5em;
+                cursor: pointer;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .navbar-toggle {
+                display: none;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Panchang';
+            padding: 30px 0;
+            color: #fff;
+            text-shadow:
+                0 0 5px rgb(255, 255, 255),
+                0 0 10px #ffff,
+                0 0 40px #757171;
+            letter-spacing: 8px;
+            font-weight: bold;
+        }
+
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product-video {
+            background-color: #101010;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .product-video img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product-info {
+            margin-top: 15px;
+        }
+
+        .price {
+            font-size: 15px;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .old-price {
+            text-decoration: line-through 3px;
+            color: #7f8c8d;
+        }
+
+
+        .buy-btn {
+            background:  radial-gradient(circle, rgba(167,168,168,1) 1%, rgba(200,200,200,1) 68%);
+            color: #000000;
+            border: 2px solid #f0f5f2;
+            padding: 12px 25px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-family: Panchang;
+        }
+
+
+        .buy-btn:hover {
+            background: linear-gradient(90deg, #818081, #1b1b1b);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            transform: scale(1.05);
+            border-color: #000000;
+            
+
+        }
+
+        .size-btn {
+            background: #101010;
+            color: #fff;
+            font-family: Panchang;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            border: none;
+        }
+
+        .size-btn:hover {
+            background: linear-gradient(90deg, #818081, #1b1b1b);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            transform: scale(1.05);
+            border-color: #101010;
+        }
+
+        .navbar-logo img:hover {
+            opacity: 1;
+            transform: rotate(-45deg);
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <a href="index.html"><img src="images/CONCEPTO 1 LOGO .png" alt="Logo"></a>
+        </div>
+        <button class="navbar-toggle" onclick="toggleMenu()">☰</button>
+        <div class="navbar-menu" id="navbarMenu">
+            <a href="index.html">Home</a>
+            <a href="tallaje.html">Sizing</a>
+        </div>
+    </nav>
+
+    <!-- Título principal -->
+    <h1>MIND SENSES</h1>
+
+    <!-- Contenedor de productos -->
+    <div class="products-container">
+        <!-- Producto 1 -->
+        <div class="product-video">
+            <img src="images/1.gif" alt="">
+            <div class="product-info">
+                <div class="sizes">
+                    <button class="size-btn" type="button">S</button>
+                    <button class="size-btn" type="button">M</button>
+                    <button class="size-btn" type="button">L</button>
+                    <button class="size-btn" type="button">XL</button>
+                </div>
+                <br>
+                <div class="price">
+                    <span class="old-price">$599.99</span> $400
+                </div>
+                <br>
+                <a href="https://www.instagram.com/mindsensesmx/?igsh=N2toYTU5a3M2NG4y"> <button class="buy-btn">Buy Now</button> </a>
+            </div>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="product-video">
+            <img src="images/2.gif" alt="">
+            <div class="product-info">
+                <div class="sizes">
+                    <button class="size-btn" type="button">S</button>
+                    <button class="size-btn" type="button">M</button>
+                    <button class="size-btn" type="button">L</button>
+                    <button class="size-btn" type="button">XL</button>
+                </div>
+                <br>
+                <div class="price">
+                    <span class="old-price">$599.99</span> $400
+                </div>
+                <br>
+                <a href="https://www.instagram.com/mindsensesmx/?igsh=N2toYTU5a3M2NG4y"> <button class="buy-btn">Buy Now</button> </a>
+            </div>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="product-video">
+            <img src="images/3.gif" alt="">
+            <div class="product-info">
+                <div class="sizes">
+                    <button class="size-btn" type="button">S</button>
+                    <button class="size-btn" type="button">M</button>
+                    <button class="size-btn" type="button">L</button>
+                    <button class="size-btn" type="button">XL</button>
+                </div>
+                <br>
+                <div class="price">
+                    <span class="old-price">$599.99</span> $400
+                </div>
+                <br>
+                <a href="https://www.instagram.com/mindsensesmx/?igsh=N2toYTU5a3M2NG4y"> <a href="https://www.instagram.com/mindsensesmx/?igsh=N2toYTU5a3M2NG4y"> <button class="buy-btn">Buy Now</button> </a> </a>
+            </div>
+        </div>
+
+        <!-- Producto 4 -->
+        <div class="product-video">
+            <img src="images/4.gif" alt="">
+            <div class="product-info">
+                <div class="sizes">
+                    <button class="size-btn" type="button">S</button>
+                    <button class="size-btn" type="button">M</button>
+                    <button class="size-btn" type="button">L</button>
+                    <button class="size-btn" type="button">XL</button>
+                </div>
+                <br>
+                <div class="price">
+                    <span class="old-price">$599.99</span> $400
+                </div>
+                <br>
+                <a href="https://www.instagram.com/mindsensesmx/?igsh=N2toYTU5a3M2NG4y"> <button class="buy-btn">Buy Now</button> </a>
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <br><br><br>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('navbarMenu');
+            menu.classList.toggle('open');
+        }
+    </script>
+</body>
+
+</html>
